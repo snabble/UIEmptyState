@@ -202,7 +202,10 @@ open class UIEmptyStateView: UIView {
             if let label = subview as? UILabel {
                 // Try to get readable width of the main view that the empty state view is inside of
                 // This will allow for better sizing of label
-                if let labelWidth = contentView.superview?.superview?.readableContentGuide.layoutFrame.width {
+                let superSuperView = contentView.superview?.superview
+                let superSuperWidth = superSuperView?.frame.width ?? 0
+                let readableWidth = superSuperView?.readableContentGuide.layoutFrame.width
+                if superSuperWidth > 0, let labelWidth = readableWidth {
                     label.widthAnchor.constraint(equalToConstant: labelWidth).isActive = true
                     let labelHeight = label.expectedHeight(forWidth: labelWidth)
                     label.heightAnchor.constraint(equalToConstant: labelHeight).isActive = true
@@ -211,7 +214,6 @@ open class UIEmptyStateView: UIView {
                     label.widthAnchor.constraint(equalToConstant: label.frame.width).isActive = true
                     label.heightAnchor.constraint(equalToConstant: label.frame.height).isActive = true
                 }
-                
             } else if let imageView = subview as? UIImageView {
                 let size = imageSize ?? CGSize(width: 100, height: 100)
                 imageView.heightAnchor.constraint(equalToConstant: size.height).isActive = true
