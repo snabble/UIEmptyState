@@ -14,7 +14,7 @@
  If you will provide a custom view in the `UIEmptyStateDataSource` `viewForEmptyState`
  you must handle how this delegate operates
 */
-public protocol UIEmptyStateDelegate: class {
+public protocol UIEmptyStateDelegate: AnyObject {
     /**
      The call back for when the `emptyStateView` will be shown on screen
      

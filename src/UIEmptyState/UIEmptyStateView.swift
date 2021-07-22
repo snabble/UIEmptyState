@@ -12,7 +12,7 @@ private extension UILabel {
     /// Returns the height that would be expected for the string, with a max width
     func expectedHeight(forWidth width: CGFloat) -> CGFloat {
         guard let txt = self.text else {
-            return 0.0
+            return 0
         }
         
         let maxSize = CGSize(width: width, height: .greatestFiniteMagnitude)
@@ -26,7 +26,6 @@ private extension UILabel {
 /// A UIView which has a stack view and inside the stackview are 1-4 other views
 /// This view is used as the default view for the `emptyStateView` in the `UIEmptyStateDataSource`
 open class UIEmptyStateView: UIView {
-    
     // MARK: - Properties
     
     /// The width constraint for the view, changed whenever reloading the empty state
@@ -68,7 +67,11 @@ open class UIEmptyStateView: UIView {
     }
     
     /// The size for image view
-    open var imageSize: CGSize? { didSet { self.setNeedsUpdateConstraints() } }
+    open var imageSize: CGSize? {
+        didSet {
+            self.setNeedsUpdateConstraints()
+        }
+    }
     
     /// The tintColor for image view
     open var imageViewTintColor: UIColor? {
@@ -160,7 +163,11 @@ open class UIEmptyStateView: UIView {
     }
     
     /// The spacing in between each of the views
-    open var spacing: CGFloat? { didSet { self.contentView.spacing = spacing ?? 0 } }
+    open var spacing: CGFloat? {
+        didSet {
+            self.contentView.spacing = spacing ?? 0
+        }
+    }
     
     // MARK: - Initializers
     
@@ -211,7 +218,8 @@ open class UIEmptyStateView: UIView {
                 imageView.widthAnchor.constraint(equalToConstant: size.width).isActive = true
                 
             } else if let button = subview as? UIButton {
-                let size = buttonSize ?? self.buttonTitle?.size() ??
+                let size = buttonSize ??
+                    self.buttonTitle?.size() ??
                     self.buttonImage?.size ??
                     CGSize(width: 0, height: 0)
                 
@@ -247,7 +255,7 @@ open class UIEmptyStateView: UIView {
         contentView.axis = .vertical
         contentView.distribution = .equalSpacing
         contentView.alignment = .center
-        contentView.backgroundColor = UIColor.red
+        contentView.backgroundColor = .clear
         contentView.spacing = spacing ?? 0
         contentView.translatesAutoresizingMaskIntoConstraints = false
         contentView.addArrangedSubview(titleLabel)
@@ -273,8 +281,11 @@ open class UIEmptyStateView: UIView {
         case 2:
             contentView.insertArrangedSubview(view, at: 1)
         case 3:
-            if contentView.arrangedSubviews.count == 3 { contentView.insertArrangedSubview(view, at: 2) }
-            else { contentView.insertArrangedSubview(view, at: contentView.arrangedSubviews.count) }
+            if contentView.arrangedSubviews.count == 3 {
+                contentView.insertArrangedSubview(view, at: 2)
+            } else {
+                contentView.insertArrangedSubview(view, at: contentView.arrangedSubviews.count)
+            }
         case 4:
             contentView.insertArrangedSubview(view, at: contentView.arrangedSubviews.count)
         default:

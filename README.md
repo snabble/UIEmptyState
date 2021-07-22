@@ -1,13 +1,13 @@
-![banner](https://raw.githubusercontent.com/luispadron/UIEmptyState/master/GitHubAssets/banner.jpg)
+![banner](https://raw.githubusercontent.com/snabble/UIEmptyState/master/GitHubAssets/banner.jpg)
 
-<img src="https://raw.githubusercontent.com/luispadron/UIEmptyState/master/GitHubAssets/screen1.jpg" width="280"><img src="https://raw.githubusercontent.com/luispadron/UIEmptyState/master/GitHubAssets/screen2.jpg" width="280"><img src="https://raw.githubusercontent.com/luispadron/UIEmptyState/master/GitHubAssets/screen3.jpg" width="280">
+<img src="https://raw.githubusercontent.com/snabble/UIEmptyState/master/GitHubAssets/screen1.jpg" width="280"><img src="https://raw.githubusercontent.com/snabble/UIEmptyState/master/GitHubAssets/screen2.jpg" width="280"><img src="https://raw.githubusercontent.com/snabble/UIEmptyState/master/GitHubAssets/screen3.jpg" width="280">
 
-
+NB: As the [original repo](https://github.com/luispadron/UIEmptyState) was archived, this fork is maintained by [snabble GmbH](https://snabble.io) for the time being, i.e. as long as we use this library in our projects and products.
 
 ## Requirements
 
-- Xcode 9.0 +
-- iOS 9.0 or greater
+- Xcode 12.5+
+- iOS 12.0 or greater
 
 
 ## Installation
@@ -31,12 +31,12 @@ end
 
 ### Carthage
 
-1. Make sure Carthage is install
+1. Make sure Carthage is installed
 
 	`brew install carthage`
 2. Add this repo to your Cartfile
 
-	`github "luispadron/UIEmptyState"`
+	`github "snabble/UIEmptyState"`
 	
 
 ### Manually
@@ -96,12 +96,12 @@ func deleteFoo() {
 }
 ```
 
-If you need more help take a look at the example project here (Pokemon nerds, will like it): [Example](https://github.com/luispadron/UIEmptyState/tree/master/UIEmptyStateExample)
+If you need more help take a look at the example project here (Pokemon nerds, will like it): [Example](https://github.com/snabble/UIEmptyState/tree/master/UIEmptyStateExample)
 
 ## Documentation
 
 
-#### [Read the full documentation here](http://htmlpreview.github.io/?https://github.com/luispadron/UIEmptyState/blob/master/docs/index.html)
+#### [Read the full documentation here](http://htmlpreview.github.io/?https://github.com/snabble/UIEmptyState/blob/master/docs/index.html)
 
 ## Example Project
 

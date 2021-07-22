@@ -11,7 +11,7 @@
 ///
 /// Default conformance for UIViewContoller is provided,
 /// however feel free to implement these methods to customize your view.
-public protocol UIEmptyStateDataSource: class {
+public protocol UIEmptyStateDataSource: AnyObject {
     
     /**
      Determines whether should or should not show the empty view for a specific tableView,
@@ -265,28 +265,28 @@ extension UIEmptyStateDataSource where Self: UIViewController {
                                         completion: ((Bool) -> Void)?) -> Void {
         guard let v = view as? UIEmptyStateView else { return }
         // Set initial alpha
-        v.imageView.alpha = 0.0
-        v.titleLabel.alpha = 0.0
-        v.detailLabel.alpha = 0.0
-        v.button.alpha = 0.0
+        v.imageView.alpha = 0
+        v.titleLabel.alpha = 0
+        v.detailLabel.alpha = 0
+        v.button.alpha = 0
         // Set initial scale to 0
-        v.imageView.transform = CGAffineTransform.init(scaleX: 0.0, y: 0.0)
-        v.button.transform = CGAffineTransform.init(scaleX: 0.0, y: 0.0)
+        v.imageView.transform = CGAffineTransform.init(scaleX: 0, y: 0)
+        v.button.transform = CGAffineTransform.init(scaleX: 0, y: 0)
 
-        UIView.animateKeyframes(withDuration: animationDuration, delay: 0.0, options: [], animations: { 
+        UIView.animateKeyframes(withDuration: animationDuration, delay: 0, options: [], animations: {
             
-            UIView.addKeyframe(withRelativeStartTime: 0.0, relativeDuration: 1/3, animations: {
-                v.imageView.alpha = 1.0
+            UIView.addKeyframe(withRelativeStartTime: 0, relativeDuration: 1/3, animations: {
+                v.imageView.alpha = 1
                 v.imageView.transform = CGAffineTransform.identity
             })
             
             UIView.addKeyframe(withRelativeStartTime: 1/3, relativeDuration: 1/3, animations: {
-                v.titleLabel.alpha = 1.0
-                v.detailLabel.alpha = 1.0
+                v.titleLabel.alpha = 1
+                v.detailLabel.alpha = 1
             })
             
             UIView.addKeyframe(withRelativeStartTime: 2/3, relativeDuration: 1/3, animations: {
-                v.button.alpha = 1.0
+                v.button.alpha = 1
                 v.button.transform = CGAffineTransform.identity
             })
             

@@ -51,7 +51,9 @@ extension UIViewController {
      By default this view is of type `UIEmptyStateView`
      */
     private var emptyView: UIView? {
-        get { return objc_getAssociatedObject(self, &Keys.emptyStateView) as? UIView }
+        get {
+            return objc_getAssociatedObject(self, &Keys.emptyStateView) as? UIView
+        }
         set {
             objc_setAssociatedObject(self, &Keys.emptyStateView, newValue, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
             // Set the views delegate
@@ -118,7 +120,6 @@ extension UIViewController {
         collectionView.isScrollEnabled = source.emptyStateViewCanScroll
         
         finishReload(for: source, in: collectionView)
-        
     }
     
     /// Finishes the reload, i.e assigns the empty view, and adjusts any other UI
@@ -174,7 +175,6 @@ extension UIViewController {
             centerY = view.centerYAnchor.constraint(equalTo: superView.safeAreaLayoutGuide.centerYAnchor,
                                                     constant: centerYOffset ?? 0)
             centerY.isActive = true
-
         }
     }
 
