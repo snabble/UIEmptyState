@@ -6,6 +6,8 @@
 //  Copyright © 2017 Luis Padron. All rights reserved.
 //
 
+import UIKit
+import Foundation
 /**
  The delegate for UIEmptyStateView
  
