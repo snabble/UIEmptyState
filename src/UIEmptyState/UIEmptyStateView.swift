@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Foundation
 
 private extension UILabel {
     /// Returns the height that would be expected for the string, with a max width

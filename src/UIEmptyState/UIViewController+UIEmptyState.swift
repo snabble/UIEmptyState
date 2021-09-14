@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Foundation
 
 /// Extension on UIViewController which adds method and computed properties in order to allow empty view creation
 extension UIViewController {
